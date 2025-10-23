@@ -8,18 +8,18 @@ public class Main {
         int victoriasmanteniendo = 0;
         int abierta;
         int otracerrada;
-        int total =0;
+        int partidas =1000;
 
-        for (int partidas = 0; partidas < 1000; partidas++) {
+        for (int i = 0; i < partidas; i++) {
             int premio = (int) (Math.random() * 3);
             int eleccion = (int) (Math.random() * 3);
             do {
                 abierta = (int) (Math.random() * 3);
 
-            } while (abierta != premio && abierta != eleccion);
+            } while (abierta == premio || abierta == eleccion);
             do {
                 otracerrada = (int) (Math.random() * 3);
-            } while (otracerrada != abierta && otracerrada != eleccion);
+            } while (otracerrada == abierta || otracerrada == eleccion);
 
             if (eleccion == premio) {
                 victoriasmanteniendo++;
@@ -28,12 +28,12 @@ public class Main {
                 victoriascambiando++;
 
             }
-            total ++;
+
         }
-        System.out.println(" nuemro de partidas totales :" + total);
-        float manteniendo = (float)(victoriasmanteniendo)/(float)(total)*100;
+        System.out.println(" nuemro de partidas totales :" + partidas);
+        float manteniendo = (float)(victoriasmanteniendo)/(float)(partidas)*100;
         System.out.println("Victorias manteniendo= "+ victoriasmanteniendo + " es un "+ manteniendo + "%");
-        float cambiando = (float)(victoriascambiando)/(float)(total)*100;
+        float cambiando = (float)(victoriascambiando)/(float)(partidas)*100;
         System.out.println("Victorias cambiando= "+ victoriascambiando + " es un "+ cambiando + "%");
 
 
